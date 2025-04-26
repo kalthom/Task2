@@ -1,0 +1,184 @@
+
+**Task 2 - Git Story and Branching**
+
+---
+
+# 1. Getting Started
+
+**Initialize a Git Repository:**
+- Create a new directory called `git-story`.
+- Navigate into this directory.
+- Initialize a Git repository using:
+```bash
+git init
+```
+
+## Basics
+
+**1. Create chapter1.txt:**
+Write the following paragraph into a new file named `chapter1.txt`:
+> Once upon a time, in a village named "Init", lived a brave adventurer named Git.
+
+Add the file to the staging area:
+```bash
+git add chapter1.txt
+```
+
+**2. Commit Your Changes:**
+Commit the changes with the message:
+```bash
+git commit -m "Chapter 1: Introduce Git from Init village"
+```
+
+**3. Check the Status:**
+Check your working and staging areas:
+```bash
+git status
+```
+
+**4. Show the Last Commit:**
+Display the changes made in the last commit:
+```bash
+git show
+```
+
+**5. Check the Commit History:**
+View the commit history:
+```bash
+git log
+```
+To see a simplified version:
+```bash
+git log --oneline
+```
+
+---
+
+## Extend the Story
+
+**1. Modify chapter1.txt:**
+Add more to the story:
+> Git was well-known for his curiosity and eagerness to learn. He had a dream - to explore the mysterious world of Version Control.
+
+Stage the changes:
+```bash
+git add chapter1.txt
+```
+
+**2. Commit the Changes:**
+```bash
+git commit -m "Chapter 1: Extended story"
+```
+
+**3. Show and Log:**
+View the most recent commit:
+```bash
+git show
+```
+And check the new commit history:
+```bash
+git log
+```
+
+---
+
+# 2. Branching and Merging
+
+**1. Create a New Branch:**
+Create and switch to a new branch called `chapter2`:
+```bash
+git branch chapter2
+git checkout chapter2
+```
+
+**2. Create chapter2.txt:**
+Write the following in `chapter2.txt`:
+> Chapter 2: Git's Decision\nGit, after much contemplation, decided to leave his home in Init to explore the vast world of Version Control.
+
+Stage and commit:
+```bash
+git add chapter2.txt
+git commit -m "Chapter 2: Git's decision"
+```
+
+**3. Switch and Merge:**
+Switch back to `master` branch:
+```bash
+git checkout master
+```
+Merge the `chapter2` branch into `master`:
+```bash
+git merge chapter2
+```
+
+**4. Non-Fast-Forward Merge:**
+Create and switch to a new branch `chapter3`:
+```bash
+git branch chapter3
+git checkout chapter3
+```
+Create `chapter3.txt` with:
+> Chapter 3: Git's First Step into the World of Version Control\nWith a heavy heart and a bag full of hopes, Git took his first step into the world unknown.
+
+Stage and commit:
+```bash
+git add chapter3.txt
+git commit -m "Chapter 3: Git's first step"
+```
+
+Switch back to `master`, modify either `chapter1.txt` or `chapter2.txt`, and commit the change:
+```bash
+git checkout master
+# modify chapter1.txt or chapter2.txt
+git add chapter1.txt
+# or
+git add chapter2.txt
+git commit -m "Update chapter in master"
+```
+
+Now merge `chapter3` into `master`:
+```bash
+git merge chapter3
+```
+
+**5. Simulate Merge Conflicts:**
+Create a new branch from `master` called `conflict_branch`:
+```bash
+git branch conflict_branch
+git checkout conflict_branch
+```
+In `conflict_branch`, change the first line of `chapter1.txt`:
+> Once upon a time, in a town named "Init", lived an enthusiastic explorer named Git.
+
+Commit:
+```bash
+git add chapter1.txt
+git commit -m "Edit from conflict_branch"
+```
+
+Switch back to `master` and make a different change to the same line in `chapter1.txt`:
+> Once upon a time, in a village named "Init", lived a brave adventurer named Git.
+
+Commit:
+```bash
+git add chapter1.txt
+git commit -m "Edit from master"
+```
+
+**6. Merge conflict_branch into master:**
+```bash
+git merge conflict_branch
+```
+You will get a merge conflict. Open `chapter1.txt`, resolve the conflict manually by choosing or combining the changes, then:
+```bash
+git add chapter1.txt
+git commit -m "Resolved merge conflict"
+```
+
+---
+
+By completing these steps, you have:
+- Created and switched between branches.
+- Merged branches.
+- Experienced both fast-forward and non-fast-forward merges.
+- Handled merge conflicts.
